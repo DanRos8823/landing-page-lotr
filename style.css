@@ -103,7 +103,8 @@ footer{
 
 .grid-wrapper{
     display:grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-template-rows: repeat(auto-fill, 250px);
     gap: 50px;
     margin:0px 50px;
     justify-content: center;
@@ -118,8 +119,9 @@ footer{
     overflow: hidden;
     z-index: 1;
     transition-timing-function: ease-in-out;
-    transition: border-radius 250ms, box-shadow 500ms, width 750ms, height 750ms, padding-top 500ms, transform 1s;
+    transition: border-radius 250ms, box-shadow 500ms, width 750ms, height 750ms, padding-top 500ms, transform 1s, overflow 500ms;
     position: relative;
+    background: #fff;
 }
 
 .member-card::before{
@@ -133,6 +135,8 @@ footer{
     border-radius: 100%;
     z-index: 5px;
     background-color: #fff;
+    transition-timing-function: ease-in-out;
+    transition: all 1500ms;
 }
 
 .member-card::after{
@@ -148,11 +152,6 @@ footer{
     transform: rotate(-45deg);
 }
 
-.member-card:hover::before,
-.member-card:hover::after{
-    display: none;
-}
-
 .member-card:hover{
     padding-top: 40px;
     border-radius: 5px;
@@ -162,6 +161,24 @@ footer{
     z-index: 5;
     align-items: center;
     transform: rotate(360deg);
+    overflow: visible;
+}
+
+.member-card:hover::before{
+    width: 100px;
+    height: 100px;
+    background: url(img/one_ring.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: -50px;
+    left:150px;
+    box-shadow: none;
+}
+
+/* .member-card:hover::before, */
+.member-card:hover::after{
+    display: none;
 }
 
 .member-face{
